@@ -1,6 +1,7 @@
 import streamlit as st
 import functions
 
+st.set_page_config(layout='wide')
 todos = functions.get_todos()
 
 def add_todo():
@@ -9,6 +10,8 @@ def add_todo():
     functions.write_todos(todos)
 
 st.title('My Todos App')
+#could use st.subheader or st.write as other ways to display text,
+#can bold the st.write('<b>....<b>', unsafe_allow_html = True)
 
 for index, todo in enumerate(todos):
     checkbox = st.checkbox(todo, key = todo)
